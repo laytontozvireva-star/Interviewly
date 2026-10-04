@@ -124,6 +124,7 @@ Rules:
 
     const response = await hf.chatCompletion({
       model: "google/gemma-2-2b-it:fastest",
+      provider: "featherless-ai",
       messages: [
         {
           role: "system",
