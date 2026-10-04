@@ -156,9 +156,9 @@ Rules:
   } catch (error) {
     console.error("Final review error:", error);
 
-    return res.status(500).json({
-      success: false,
-      message: "Could not create the final interview review.",
-    });
+   return res.status(500).json({
+  success: false,
+  message: error.message || "Could not create the final interview review.",
+});
   }
 };
