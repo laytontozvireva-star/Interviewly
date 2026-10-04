@@ -123,7 +123,7 @@ Rules:
 `;
 
     const response = await hf.chatCompletion({
-      model: "google/gemma-2-2b-it",
+      model: "google/gemma-2-2b-it:fastest",
       messages: [
         {
           role: "system",
