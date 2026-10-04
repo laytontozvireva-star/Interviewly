@@ -83,9 +83,9 @@ ${
 Return ONLY the interview question.
 `;
 
-    const response = await hf.chatCompletion({
-      model: "google/gemma-2-2b-it:fastest",
-      provider: "featherless-ai",
+   const response = await hf.chatCompletion({
+  model: "google/gemma-2-2b-it",
+  provider: "featherless-ai",
       messages: [
         {
           role: "system",
