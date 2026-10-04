@@ -736,7 +736,7 @@ function App() {
     } catch (error) {
       console.error(error);
       setQuestionNumber(0);
-      setAiError(`Could not start the interview. Make sure the ${APP_NAME} AI server and Ollama are running.`);
+      setAiError(error.message || "Could not start the interview.");
     } finally {
       setLoadingQuestion(false);
     }
@@ -811,7 +811,7 @@ function App() {
       setAiError(
         isLastQuestion
           ? `The interview finished, but ${APP_NAME} could not create your review.`
-          : "Could not generate the next question. Check that the AI server and Ollama are running."
+          : error.message || "Could not generate the next question."
       );
     } finally {
       setLoadingQuestion(false);
