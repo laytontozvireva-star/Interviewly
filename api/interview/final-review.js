@@ -123,8 +123,8 @@ Rules:
 `;
 
    const response = await hf.chatCompletion({
-  model: "google/gemma-2-2b-it",
-  provider: "featherless-ai",
+  model: "openai/gpt-oss-20b",
+  provider: "auto",
       messages: [
         {
           role: "system",
