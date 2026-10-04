@@ -111,12 +111,20 @@ Return ONLY the interview question.
       success: true,
       question,
     });
-  } catch (error) {
-    console.error("Question generation error:", error);
+  }  catch (error) {
+  console.error("Question generation error:", error);
 
- return res.status(500).json({
-  success: false,
-  message: error.message || "Could not generate the interview question.",
-});
-  }
+  return res.status(500).json({
+    success: false,
+    message:
+      error?.message ||
+      error?.cause?.message ||
+      "Could not generate the interview question.",
+    details: {
+      name: error?.name,
+      status: error?.status,
+      cause: error?.cause?.message,
+    },
+  });
+}
 };

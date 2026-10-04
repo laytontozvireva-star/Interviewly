@@ -154,11 +154,19 @@ Rules:
       review,
     });
   } catch (error) {
-    console.error("Final review error:", error);
+  console.error("Final review error:", error);
 
- return res.status(500).json({
-  success: false,
-  message: error.message || "Could not create the final interview review.",
-});
-  }
+  return res.status(500).json({
+    success: false,
+    message:
+      error?.message ||
+      error?.cause?.message ||
+      "Could not create the final interview review.",
+    details: {
+      name: error?.name,
+      status: error?.status,
+      cause: error?.cause?.message,
+    },
+  });
+}
 };
